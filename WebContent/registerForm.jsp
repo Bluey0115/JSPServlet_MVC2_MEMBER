@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,6 +66,7 @@
 					<label for="inputUserName" class="sr-only">아이디</label> 
 					<input	type="text" class="form-control" placeholder="ID" name='userId' required autofocus>
 				</div>
+				<p>${error}
 				<div class="form-group">
 					<label for="inputPassword" class="sr-only">비밀번호</label> 
 					<input 	type="password" class="form-control" placeholder="Password" name='userPassword' required>
