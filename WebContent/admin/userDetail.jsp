@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>회원가입</title>
+<title>회원 정보 수정</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -19,16 +19,6 @@ function checkForm() {
 		alert("아이디를 입력하세요.");
 		return false;
 	}
-
-	if (!document.updateUser.userPassword.value) {
-		alert("비밀번호를 입력하세요.");
-		return false;
-	}
-
-	if (document.updateUser.userPassword.value != document.updateUser.userPassword_confirm.value) {
-		alert("비밀번호를 동일하게 입력하세요.");
-		return false;
-	}
 	
 	if (!document.updateUser.userName.value) {
 		alert("이름을 입력하세요");
@@ -40,7 +30,6 @@ function checkForm() {
 		return false;
 	}	
 }
-
 </script>	
 </head>
 <body>
@@ -56,22 +45,22 @@ function checkForm() {
 	</nav>
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">정보 수정</h1>
+			<h1 class="display-3">회원정보 수정</h1>
 		</div>
 	</div>
 	<div class="container">
 		<div class="col-md-4 col-md-offset-4">
 			<form method="post" name="updateUser" onsubmit="return checkForm()">
 				<div class="form-group">
-					<input type="hidden" class="form-control"  name='userId' value="${u.userId}" readonly>
+					<input type="hidden" class="form-control"  name='userNo' value="${u.userNo}" readonly>
 				</div>
 				<div class="form-group">
-					<label for="inputPassword">비밀번호 : </label> 
-					<input 	type="password" class="form-control" placeholder="비밀번호 입력" name='userPassword'>
+					<label for="inputName">아이디 : </label>
+					<input type="text" class="form-control"  name='userId' value="${u.userId}" readonly>
 				</div>
 				<div class="form-group">
-					<label for="inputPassword">비밀번호 재입력 : </label> 
-					<input 	type="password" class="form-control" placeholder="비밀번호 재입력" name='userPassword_confirm' required>
+					<label for="inputName">비밀번호 : </label> 
+					<input 	type="text" class="form-control"  name='userPassword' value="${u.userPassword}">
 				</div>
 				<div class="form-group">
 					<label for="inputName">이름 : </label> 
@@ -81,9 +70,12 @@ function checkForm() {
 					<label for="inputPassword">이메일 : </label> 
 					<input 	type="text" class="form-control" name='userEmail' value="${u.userEmail}" required>
 				</div>
-				<input type="submit" value="수정" onclick="javascript_:document.updateUser.action='update.do';">
-				<input type="submit" value="탈퇴" onclick="javascript_:document.updateUser.action='delete.do';">
-
+				<div class="form-group">
+					<label for="inputPassword">가입 날짜 : </label> 
+					<input 	type="text" class="form-control" name='reg_Date' value="${u.reg_Date}" readonly>
+				</div>
+				<input type="submit" value="수정" onclick="javascript_:document.updateUser.action='./update.act';">
+				<input type="submit" value="탈퇴" onclick="javascript_:document.updateUser.action='./delete.act';">
 			</form>
 		</div>
 	</div>

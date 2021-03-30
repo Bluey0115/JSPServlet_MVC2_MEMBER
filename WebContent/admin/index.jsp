@@ -18,7 +18,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="../index.jsp">Home</a>
+				<a class="navbar-brand" href="../admin/index.jsp">Home</a>
 			</div>
 			<c:choose>
 			<c:when test="${empty admin}">
@@ -28,7 +28,7 @@
 			</c:when>
 			<c:otherwise>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="./logout.do">로그아웃</a></li>
+				<li class="active"><a href="../logout.do">로그아웃</a></li>
 			</ul>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="userlist.act">회원 정보</a></li>

@@ -183,7 +183,7 @@ public class UserDAO {
 
 			conn = getConnection();
 
-			pstmt = conn.prepareStatement("update user set userPassword = ?, userEmail = ?  where userId = ?");
+			pstmt = conn.prepareStatement("update user set userPassword = ?, userEmail = ? where userId = ?");
 			pstmt.setString(1, user.getUserPassword());
 			pstmt.setString(2, user.getUserEmail());
 			pstmt.setString(3, user.getUserId());

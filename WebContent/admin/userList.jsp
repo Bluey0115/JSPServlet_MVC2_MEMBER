@@ -27,7 +27,8 @@
 		</div>
 	</nav>
 	<div class="container">
-  <h2>회원 관리</h2>          
+  <h2>회원 관리</h2>      
+  ${message}    
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -42,7 +43,7 @@
     <c:forEach var="list" items="${listOfUser}">
       <tr>
         <td>${list.userNo}</td>
-        <td>${list.userId}</td>
+        <td><a href="userDetail.act?userNo=${list.userNo}">${list.userId}</a></td>
         <td>${list.userName}</td>
         <td>${list.userEmail}</td>
         <td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.reg_Date}"/></td> 
@@ -51,8 +52,5 @@
     </tbody>
   </table>
 </div>
-
-
-
 </body>
 </html>

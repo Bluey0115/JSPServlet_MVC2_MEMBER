@@ -18,8 +18,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="../index.jsp">Home</a>
-				<a class="navbar-brand" href="../registerForm.jsp">회원가입</a>
+				<a class="navbar-brand" href="./index.jsp">Home</a>
 			</div>
 		</div>
 	</nav>

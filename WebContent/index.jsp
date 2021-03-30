@@ -43,6 +43,8 @@
 		<div class="container">
 			<h1 class="display-3">
 				<%=greeting%>
+				<br>
+				${message}
 			</h1>
 		</div>
 	</div>	

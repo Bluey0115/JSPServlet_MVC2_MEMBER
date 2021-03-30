@@ -74,7 +74,6 @@ public class UserController extends HttpServlet {
 		else if (command.equals("/login.do")) {
 
 			UserDAO userDAO = UserDAO.getinstance();
-			User user = new User();
 
 			String userId = request.getParameter("userId");
 			String userPassword = request.getParameter("userPassword");
@@ -150,7 +149,9 @@ public class UserController extends HttpServlet {
 
 			UserDAO userDAO = UserDAO.getinstance();
 			User user = new User();
-
+			
+			int userNo = Integer.parseInt(request.getParameter("userNo"));
+			user.setUserNo(userNo);
 			user.setUserId(request.getParameter("userId"));
 			user.setUserPassword(request.getParameter("userPassword"));
 			user.setUserName(request.getParameter("userName"));
@@ -206,7 +207,7 @@ public class UserController extends HttpServlet {
 			}
 			
 			
-			else if (command.equals("/admin.do")) {
+			else if (command.equals("/admin")) {
 				
 				HttpSession session = request.getSession();
 				session.invalidate();

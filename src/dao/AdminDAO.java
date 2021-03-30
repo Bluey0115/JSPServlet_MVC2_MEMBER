@@ -118,9 +118,42 @@ public class AdminDAO {
 		}
 		
 		
+		//회원 정보 불러오기
 		
-		
-		
-		
+		public User getUser(int userNo) {
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			User user = new User();
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement("select * from user where userNo = ?");
+				pstmt.setInt(1, userNo);
+				rs = pstmt.executeQuery();
+						
+				if(rs.next()) {
+					
+					user.setUserNo(userNo);
+					user.setUserId(rs.getString("userId"));
+					user.setUserName(rs.getString("userName"));
+					user.setUserPassword(rs.getString("userPassword"));
+					user.setUserEmail(rs.getString("userEmail"));
+					user.setReg_Date(rs.getDate("reg_Date"));
+				}
+				
+			}catch(Exception e) {
+					e.printStackTrace();
+				}finally {
+					if (rs != null)
+						try {rs.close();} catch (SQLException e) {}
+					if (pstmt != null)
+						try {pstmt.close();} catch (SQLException e) {}
+					if (conn != null)
+						try {conn.close();} catch (SQLException e) {}
+				}
+			return user;	
+		}		
 		
 }
