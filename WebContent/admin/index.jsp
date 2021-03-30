@@ -18,14 +18,12 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="./index.jsp">Home</a>
+				<a class="navbar-brand" href="../index.jsp">Home</a>
 			</div>
 			<c:choose>
-			<c:when test="${empty userId}">
+			<c:when test="${empty admin}">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="./loginForm.jsp">로그인</a></li>
-				<li class="active"><a href="./registerForm.jsp">회원가입</a></li>
-				<!-- <a type="hidden" href="./admin.do"></a> -->
+				<li class="active"><a href="./login.jsp">로그인</a></li>
 			</ul>
 			</c:when>
 			<c:otherwise>
@@ -33,7 +31,7 @@
 				<li class="active"><a href="./logout.do">로그아웃</a></li>
 			</ul>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="./upCheckForm.jsp">정보 수정</a></li>
+				<li class="active"><a href="userlist.act">회원 정보</a></li>
 			</ul>
 			</c:otherwise>
 			</c:choose>
@@ -42,7 +40,7 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="display-3">
-				<%=greeting%>
+				관리자 페이지 입니다.
 			</h1>
 		</div>
 	</div>	

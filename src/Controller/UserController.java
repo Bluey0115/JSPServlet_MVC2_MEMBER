@@ -94,11 +94,12 @@ public class UserController extends HttpServlet {
 				request.setAttribute("error", "비밀번호가 틀렸습니다.");
 				RequestDispatcher rd = request.getRequestDispatcher("/loginForm.jsp");
 				rd.forward(request, response);
-			} else if (result == -1)
+			} else if (result == -1) {
 
 				request.setAttribute("error", "아이디가 존재하지 않습니다.");
-			RequestDispatcher rd = request.getRequestDispatcher("/loginForm.jsp");
-			rd.forward(request, response);
+				RequestDispatcher rd = request.getRequestDispatcher("/loginForm.jsp");
+				rd.forward(request, response);
+			}
 		}
 
 		// 로그 아웃
@@ -201,6 +202,15 @@ public class UserController extends HttpServlet {
 
 				request.setAttribute("error", "비밀번호가 맞지 않습니다.");
 				RequestDispatcher rd = request.getRequestDispatcher("/upCheckForm.jsp");
+				rd.forward(request, response);
+			}
+			
+			
+			else if (command.equals("/admin.do")) {
+				
+				HttpSession session = request.getSession();
+				session.invalidate();
+				RequestDispatcher rd = request.getRequestDispatcher("/admin/login.jsp");
 				rd.forward(request, response);
 			}
 		}

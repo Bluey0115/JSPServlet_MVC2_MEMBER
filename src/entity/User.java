@@ -3,7 +3,8 @@ package entity;
 import java.util.Date;
 
 public class User {
-
+	
+	private int userNo;
 	private String userId;
 	private String userPassword;
 	private String userName;
@@ -15,12 +16,22 @@ public class User {
 	}
 	
 
-	public User(String userId, String userPassword, String userName, String userEmail) {
-		super();
+	public User(int userNo, String userId, String userPassword, String userName, String userEmail) {
+		this.userNo = userNo;
 		this.userId = userId;
 		this.userPassword = userPassword;
 		this.userName = userName;
 		this.userEmail = userEmail;
+	}
+
+
+	public int getUserNo() {
+		return userNo;
+	}
+
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
 
 
@@ -76,13 +87,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userPassword=" + userPassword + ", userName=" + userName + ", userEmail="
-				+ userEmail + ", reg_Date=" + reg_Date + "]";
+		return "User [userNo=" + userNo + ", userId=" + userId + ", userPassword=" + userPassword + ", userName="
+				+ userName + ", userEmail=" + userEmail + ", reg_Date=" + reg_Date + "]";
 	}
-	
-	
-	
-	
 	
 	
 }
