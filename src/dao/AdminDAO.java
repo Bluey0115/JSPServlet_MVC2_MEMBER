@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -16,9 +15,6 @@ import entity.User;
 public class AdminDAO {
 	
 	private static AdminDAO instance = new AdminDAO();
-	
-	private ArrayList<User> listOfUser = new ArrayList<User>();
-	
 	
 	public static AdminDAO getinstance() {
 		if (instance == null)
@@ -154,6 +150,34 @@ public class AdminDAO {
 						try {conn.close();} catch (SQLException e) {}
 				}
 			return user;	
-		}		
+		}
 		
+		public int countUser(int count) {
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			int countUser = 0;
+			
+
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement("select count(userNo) as countUser from user ");
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) 	
+					countUser = rs.getInt("countUser");
+				
+				}catch(Exception e) {
+					e.printStackTrace();
+				}finally {
+					if (rs != null)
+						try {rs.close();} catch (SQLException e) {}
+					if (pstmt != null)
+						try {pstmt.close();} catch (SQLException e) {}
+					if (conn != null)
+						try {conn.close();} catch (SQLException e) {}
+			}
+			return countUser;				
+		}
 }

@@ -81,12 +81,14 @@ public class AdminController extends HttpServlet {
 			AdminDAO adminDAO = AdminDAO.getinstance();
 			
 			ArrayList<User> listOfUser = new ArrayList<>();
+			int countUser = 0;
 			
 			// 모든 회원 정보 가져오기
 			adminDAO.getUserList(listOfUser);
+			// 회원 테이블의 총 수
+			countUser = adminDAO.countUser(countUser);
 			
-			
-			
+			request.setAttribute("countUser", countUser);
 			request.setAttribute("listOfUser", listOfUser);
 			RequestDispatcher rd = request.getRequestDispatcher("userList.jsp");
 			rd.forward(request, response);
